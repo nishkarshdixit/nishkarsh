@@ -1,0 +1,76 @@
+
+
+	<div>
+		<div class="container">
+	    <div class="row"><br><br><br><br></div>
+	    <div class="col-lg-1"></div>
+		<h1 class="col-lg-10 well" style="text-align:Center;">Project Descriptor</h1></div>
+		<div>
+		<div class="col-lg-2"></div>
+		<div class="col-lg-8 well">
+		<div class="row">
+					<form name="PDescForm" novalidate>
+						<div class="col-sm-12">
+							
+							<div class="row">
+								<div class="col-sm-3"></div>
+								<div class="col-sm-6 form-group">
+									<label>Cost Center</label>
+									<input type="text" name = "costCenter" ng-model = "projObject.costCenter" required = "required"  ng-pattern="/^[A-Za-z ]*$/" placeholder="Enter Cost Center name Here.." class="form-control" ng-maxlength="30">
+									<span ng-show= "PDescForm.costCenter.$error.required && PDescForm.costCenter.$dirty" class="warning">*Cost Center Required</span>
+									<span ng-show = "PDescForm.costCenter.$error.pattern" class="warning">*Invalid Cost Center</span>
+								</div>
+                                </div>
+                                <div class = "row">
+								<div class="col-sm-3"></div>
+                                <div class="col-sm-6 form-group">
+									<label>Project ID</label>
+									<input type="text" name = "projectId" ng-model = "projObject.projectId" required = "required"  ng-pattern="/^[A-Z-0-9]*$/" placeholder="Enter Project ID Here.." class="form-control" ng-maxlength="6">
+									<span ng-show= "PDescForm.projectId.$dirty && PDescForm.projectId.$error.required" class="warning">*Project ID Required</span>
+									<span ng-show = "PDescForm.projectId.$error.pattern" class="warning">*Invalid Project ID</span>
+								</div>
+                                </div>
+                               
+                                <div class = "row">
+									<div class="col-sm-3"></div>
+                                    <div class="col-sm-6 form-group">
+									<label>Hiring Manager ID</label>
+									<input type="text" name = "hmId" ng-model = "projObject.hmId" required = "required"  ng-pattern="/^[A-Z0-9-]*$/" placeholder="Enter Hiring Manager ID Here.." class="form-control" ng-maxlength="6">
+									<span ng-show= "PDescForm.hmId.$dirty && PDescForm.hmId.$error.required" class="warning">*Hiring Manager ID Required</span>
+									<span ng-show = "PDescForm.hmId.$error.pattern" class="warning">*Invalid Hiring Manager ID</span>
+								</div>
+                                </div>
+                                <div class = "row">
+									<div class="col-sm-3"></div>
+									<div class="col-sm-6 form-group">
+									<label>Reporting Manager ID</label>
+									<input type="text" name = "rmId" ng-model = "projObject.rmId"  ng-pattern="/^[A-Z0-9-]*$/" placeholder="Enter Reporting Manager ID Here.." class="form-control" ng-maxlength="6">
+									<span ng-show= "PDescForm.rmId.$dirty && PDescForm.rmId.$error.required" class="warning">*Reporting Manager ID Required</span>
+									<span ng-show = "PDescForm.rmId.$error.pattern" class="warning">*Invalid Reporting Manager ID</span>
+								</div>
+                                </div>
+                                <div class = "row">
+									<div class="col-sm-3"></div>
+                                    <div class="col-sm-6 form-group">
+									<label>Business Finance Manager ID</label>
+									<input type="text" name = "bfmId" ng-model = "projObject.bfmId" required = "required"  ng-pattern="/^[A-Z0-9-]*$/" placeholder="Enter Business Finance Manager ID Here.." class="form-control" ng-maxlength="6">
+									<span ng-show= "PDescForm.bfmId.$dirty && PDescForm.bfmId.$error.required" class="warning">*Business Finance Manager ID Required</span>
+									<span ng-show = "PDescForm.bfmId.$error.pattern" class="warning">*Invalid Business Finance Manager ID</span>
+								</div>
+                                </div>
+                              
+						<div class="row">
+							<div class="col-sm-4"></div>
+							<div class="col-sm-4">
+							
+							<button type="button" class="btn btn-lg btn-info btn-block" ng-disabled="PDescForm.$invalid" ng-click="submitProject(projObject)"> Add Project Details </button><br>
+							</div>					
+						</div>
+						</div>
+					</form> 
+					
+		</div>
+		</div>
+	</div>
+	</div>
+  

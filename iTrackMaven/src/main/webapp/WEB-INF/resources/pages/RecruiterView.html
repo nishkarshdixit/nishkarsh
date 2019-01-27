@@ -1,0 +1,65 @@
+
+
+<div class="fluid-container">
+	<div class="row"><br><br><br><br></div>
+	<div class="row">
+		
+        
+        <div class="col-md-12">
+        <h2 class="col-lg-10 col-md-offset-1 well">Welcome <span ng-bind="data.employeeName"></span></h2> <br><br><br>
+        
+          <div class="panel-body">
+              
+			  <div class="panel panel-default col-lg-10 col-md-offset-1">
+			  <table id="mytables" class="table table-responsive ">
+			  
+			   <thead>
+                   <th>Select Request</th>
+                   <th>Request Id</th>
+                   <th>Raised By</th>
+                   <th>Cost Center</th>
+                    <th>Project Name</th>
+					<th>Primary Skill</th>
+                    <th>Secondary Skill</th>
+                    <th>Deadline</th>
+                    <th>Resource Required</th>
+                    <th>Job Description</th>
+                    
+                    
+					
+                   </thead>
+			  
+			   <tbody>
+    
+				<tr ng-repeat="req in requests">
+				<td><input type="radio" value="{{req.requestId}}" ng-model="requestAssignObject.requestId"><br></td>
+				<td ng-bind="req.requestId"></td>
+				<td ng-bind="req.employeeName"></td>
+				<td ng-bind="req.costCenterName"></td>
+				<td ng-bind="req.projectName"></td>
+				<td ng-bind="req.primarySkill"></td>
+				<td ng-bind="req.secondarySkill"></td>
+				<td ng-bind="req.deadline | date"></td>
+				<td ng-bind="req.resourceCount"></td>
+				<td><button type="button"  class="btn btn-info col-md-offset-3 col-sm-6" ng-click="getJD(req.jobDescription)"><span class="glyphicon glyphicon-download"></span></button></td>
+				
+			
+				
+				
+			 </tr>
+			
+			 </tbody>
+			  </table>
+			  <br/><br/><a href="#/shortlistCandidates"><button type="button"  class="btn btn-primary col-md-offset-2 col-sm-3" ng-click="submitRequest(requestAssignObject)">Shortlist Candidates&nbsp;<span class="badge" ng-bind="countAvailable"></span></button></a>
+			   	<a href="#/confirmStatus"><button type="button"  class="btn btn-success col-md-offset-3 col-sm-3" ng-click="submitShortlistRequest(requestAssignObject)">Update Status</button></a></br></br>
+			  	<a href="#/selected"><button type="button"  class="btn btn-info col-md-offset-2 col-md-4">Selected Candidates&nbsp;<span class="badge" ng-bind="countSelected"></span></button></a>
+			   	<button type="button" ng-click="resolveRequest()" class="btn btn-warning col-md-offset-1 col-md-4">Resolve Request</button>
+			</div>
+			
+			
+			 
+      <!-- /.modal-dialog --> 
+    </div>
+    </div>
+    </div>
+    </div>

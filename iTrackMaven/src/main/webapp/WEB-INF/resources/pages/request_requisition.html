@@ -1,0 +1,140 @@
+<div>
+<div class="row"><br><br><br><br></div>	
+<div class="fluid-container">
+	 <div class="col-lg-2"></div>
+		<h1 class="col-lg-8 well" style="text-align:Center;">Raise Request</h1></div>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-default">
+                        <div class="panel-body">
+			    		<form class="form-horizontal" role="form" action="GENERATE REQUEST" name="myForm2" novalidate ng-init="uploadCheck='true'" >
+			    		<div class="form-group">
+     						 <label class="control-label col-sm-2" for="sel1">Cost Center:</label>
+     						 <div class="col-sm-6">   
+      						<select class="form-control" id="sel1" name="costCenter" placeholder="Select Cost Center" ng-model="requestObject.costCenter" required="required" >
+      						<option value="">Select Cost Center</option>
+       						<option ng-repeat="x in ccList" value="{{x.ccId}}">{{x.costCenter}}</option>
+     						 </select>
+      						<span class="warning"  ng-show="myForm2.costCenter.$dirty && myForm2.costCenter.$invalid">Invalid Cost Center</span>
+    						</div>
+    						</div> 						
+
+							<div class="form-group">
+      						<label class="control-label col-sm-2" for="projectName">Project Name:</label>
+      						<div class="col-sm-6">          
+        					<input type="text" class="form-control" id="projectName" placeholder="Enter project name" name="projectName" ng-model="requestObject.projectName" required="required">
+        					<span class="warning"  ng-show="myForm2.projectName.$dirty && myForm2.projectName.$invalid">Invalid Project Name</span>
+      						</div>
+    						</div>
+    						
+							
+							<div class="form-group">
+     						 <label class="control-label col-sm-2" for="sel2">Primary Skill:</label>
+     						 <div class="col-sm-6">   
+      						<select class="form-control" id="sel2" name="primarySkill" placeholder="Select" ng-model="requestObject.primarySkill" required="required">
+      						<option value="">Select Primary Skill</option>
+       						 <option value="JAVA">JAVA</option>
+       						 <option value="PHP">PHP</option>
+        					<option value=".NET">.NET</option>
+        					<option value="DB_DEVELOPER">DB_DEVELOPER</option>
+     						 </select>
+      						<span class="warning"  ng-show="myForm2.primarySkill.$dirty && myForm2.primarySkill.$invalid">Invalid Primary Skill</span>
+    						</div>
+    						</div> 			
+							
+							<div class="form-group">
+     						 <label class="control-label col-sm-2" for="sel3">Secondary Skill:</label>
+     						 <div class="col-sm-6">   
+      						<select class="form-control" id="sel3" name="secondarySkill" placeholder="Select" ng-model="requestObject.secondarySkill" required="required">
+       						 <option value="">Select Secondary Skills</option>
+        					<option value = "SPRING">SPRING</option>
+        					<option value = "HIBERNATE">HIBERNATE</option>
+        					<option value = "SQL">SQL</option>
+        					<option value = "ORACLE">ORACLE</option>
+     						 </select>
+      						<span class="warning"   ng-show="myForm2.secondarySkill.$dirty && myForm2.secondarySkill.$invalid">Invalid Secondary Skill</span>
+    						</div>
+    						</div> 	
+
+							<div class="form-group">
+     						 <label class="control-label col-sm-2" for="sel3">Experience:</label>
+     						 <div class="col-sm-6">   
+      						<select class="form-control" id="sel3" name="experience" placeholder="Select" ng-model="requestObject.experience" required="required">
+       						 <option value="">Select Work Experience</option>
+        					<option value = "1">1-3</option>
+        					<option value = "2">3-6</option>
+        					<option value = "3">6-9</option>
+        					<option value = "4">Above 9</option>
+     						 </select>
+      						<span class="warning"   ng-show="myForm2.experience.$dirty && myForm2.experience.$invalid">Invalid Experience</span>
+    						</div>
+    						</div> 				
+							
+							<div class="form-group">
+      						<label class="control-label col-sm-2" for="numresourceCount">No of Resource Required:</label>
+      						<div class="col-sm-6">          
+        					<input type="number" class="form-control" id="numresourceCount" placeholder="Enter no of resourceCount" name="resourceCount" ng-model="requestObject.resourceCount" required="required" ng-min=1 ng-max=100>
+        					<span class="warning"   ng-show="myForm2.resourceCount.$dirty && myForm2.resourceCount.$invalid">Invalid resourceCount</span>
+      						</div>
+    						</div>
+    						
+    						
+							
+							
+							
+							<div class="form-group">
+     						 <label class="control-label col-sm-2" for="sel4">Location:</label>
+     						 <div class="col-sm-6">   
+      						<select class="form-control" id="sel4" name="location" placeholder="Select" ng-model="requestObject.location" required="required">
+      						<option value="" selected>Select city</option>
+       						 <option value="Kochi">KOCHI</option>
+       						 <option value="Trivandrum">TRIVANDRUM</option>
+        					<option value="Bengaluru">BENGALURU</option>
+        					<option value="USA">USA</option>
+        					<option value="London">LONDON</option>
+        					<option value="Germany">GERMANY</option>
+        					<option value="Japan">JAPAN</option>
+     						 </select>
+      						<span class="warning"   ng-show="myForm2.location.$dirty && myForm2.location.$invalid">Invalid Location</span>
+    						</div>
+    						</div> 	
+    						
+    						<div class="form-group">
+      						<label class="control-label col-sm-2" for="deadline">Deadline Date:</label>
+      						<div class="col-sm-6">          
+        					<input type="date" class="form-control" id="deadline" ng-change="checkDate()"  name="deadline" ng-model="requestObject.deadline" required="required">
+        					<span class="warning"  ng-show="myForm2.deadline.$dirty && myForm2.deadline.$invalid">Invalid Deadline</span>
+        					<span class="warning" ng-show="dateFlag">Date to be future date</span>
+      						</div>
+    						</div>	
+							
+							 <div class="form-group">
+    						<label class="control-label col-sm-4" for="InputFile">Job Description:</label>
+    						<div class="col-sm-4"> 
+    						<input type="file" id="file" file-input="file" name="jobDescription" >
+    						</div>
+    						
+    						<div class="col-sm-2">
+							<button type="button" class="btn btn-sm btn-info col-sm-12" ng-click="add()">Upload</button>
+    						</div>
+   							 
+ 							 </div>
+ 							 <fieldset ng-disabled="dateFlag">
+ 							 <fieldset ng-disabled="uploadCheck">
+							<center><input class="btn btn-info" type="button" ng-disabled="myForm2.$invalid" ng-click="submitRequest(requestObject)" value="GENERATE REQUEST"/></center>
+							</fieldset>
+							</fieldset>			
+							
+         </form>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+    

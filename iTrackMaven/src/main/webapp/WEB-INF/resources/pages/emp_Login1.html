@@ -1,0 +1,29 @@
+<div>
+
+	<div class="row"><br><br><br><br><br><br><br><br><br></div>
+	<div class="row">
+	<div class = "fluid-container col-md-10 text-center">
+		<form action="LOGIN"  name="myForm"  class="well col-lg-4 col-lg-offset-5 login">       
+		
+		   <h3><span class="glyphicon glyphicon-lock"></span> LOGIN</h3>
+			  <hr><br>
+		<div class="form-group">	  
+     <span class="glyphicon glyphicon-user"></span>Employee ID 
+     <input type="text" class="form-control" name="employeeId" placeholder="Enter Employee ID" ng-pattern="/^[0-9A-Z-]*$/" maxlength="6" ng-model="loginObject.employeeId" required="" autofocus="" />
+    <span class="warning" ng-show="myForm.employeeId.$error.required && myForm.employeeId.$dirty">Enter Employee Id</span><br/>
+    <span class="warning" ng-show="myForm.employeeId.$error.pattern"> Invalid Employee ID</span><br/>
+    
+     <span class="glyphicon glyphicon-wrench"></span> Password <input type="password" class="form-control" name="password" ng-model="loginObject.password" placeholder="Enter Password" ng-minlength="6" ng-maxlength="30" required="required"/> 
+      <span class="warning" ng-show="myForm.password.$dirty && myForm.password.$invalid" ">Password is required</span><br/>
+      <span class = "warning" ng-show = "myForm.password.$error.minlength">Password length must be minimum of 6 characters</span>    
+            <span class = "error_span" ng-show = "myForm.password.$error.maxlength">Password length must not exceed 30 characters</span>    
+    </div>
+      
+
+      
+      <button class="btn btn-lg btn-primary btn-block" type="button" ng-disabled="myForm.$invalid" value="LOGIN" ng-click=login(loginObject)>Login</button>   
+      <span class="warning" ng-bind="message"></span>
+    </form>
+  </div>
+  </div>
+</div>

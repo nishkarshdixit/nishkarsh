@@ -1,0 +1,53 @@
+<div class=" fluid-container">
+                <div class="row"><br><br><br><br></div>
+                <div class="row">
+
+        
+        <div class="col-md-12">
+                <h2 class="col-lg-10 col-md-offset-1 well">All Employees of IBS</h2> <br><br><br>
+        
+          <div class="panel-body">
+              
+                                                  <div class="panel panel-default col-lg-12">
+                                                  <table id="mytables" class="table table-responsive ">
+                                                  
+                                                   <thead>
+                   <th>Employee ID</th>
+                    <th>Full Name</th>
+                    <th>Date Of Birth</th>
+                    <th>Address</th>
+                    <th>Phone Number</th>
+                    <th>Email Address</th>
+                    <th>Location</th>
+                    <th>Date of Joining</th>
+                    <th>Designation</th>
+                   
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                    
+                                                                                
+                   </thead>
+                                                  
+                                                   <tbody>
+    
+                                                                <tr ng-repeat="emp in viewEmployees">
+                                                                <td ng-bind="emp.employeeId"></td>
+                                                                <td ng-bind="emp.employeeName"></td>
+                                                                <td ng-bind="emp.dob | date"></td>
+                                                                <td ng-bind="emp.address"></td>
+                                                                <td ng-bind="emp.phone"></td>
+                                                                <td ng-bind="emp.email"></td>
+                                                                <td ng-bind="emp.location"></td>
+                                                                <td ng-bind="emp.doj | date"></td>  
+                                                                <td ng-bind="emp.designation"></td>
+                                                                </tr>
+                                                                </tbody>
+                                                                </table>
+                                                                
+                </div>
+                                </div>
+        </div>
+                </div>
+</div>

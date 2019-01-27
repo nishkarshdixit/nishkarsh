@@ -1,0 +1,153 @@
+
+<div>
+	<div class="container">
+		<div class="row">
+			<br>
+			<br>
+			<br>
+			<br>
+		</div>
+		<h1 class="well" style="text-align: Center;">Employee Descriptor</h1>
+		<div class="col-lg-12 well">
+			<div class="row">
+				<form name="EDescForm" novalidate>
+					<div class="col-sm-12">
+						<div class="row">
+							<div class="col-sm-1"></div>
+							<div class="col-sm-3">
+								<label>Employee ID</label> <input type="text" name="employeeId"
+									ng-model="empObject.employeeId" required="required"
+									ng-pattern="/^[A-Z0-9-]*$/"
+									placeholder="Enter Employee ID Here.." class="form-control"
+									maxlength="6"> <span
+									ng-show="EDescForm.employeeId.$error.required && EDescForm.employeeId.$dirty"
+									class="warning">*Employee ID Required</span> <span
+									ng-show="EDescForm.employeeId.$error.pattern" class="warning">*Invalid
+									Employee ID</span>
+							</div>
+							<div class="col-sm-1"></div>
+							<div class="col-sm-6 form-group">
+								<label>Employee Name</label> <input type="text"
+									name="employeeName" ng-model="empObject.employeeName"
+									required="required" placeholder="Enter Employee Name Here.."
+									ng-pattern="/^[A-Za-z ]*$/" class="form-control" maxlength="40">
+								<span
+									ng-show="EDescForm.employeeName.$dirty && EDescForm.employeeName.$invalid"
+									class="warning">*Valid Employee Name Required</span>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-1"></div>
+							<div class="col-sm-10 form-group">
+								<label>Address</label>
+								<textarea name="address" ng-model="empObject.address"
+									required="required" placeholder="Enter Employee Address Here.."
+									class="form-control" maxlength="200"></textarea>
+								<span
+									ng-show="EDescForm.address.$dirty && EDescForm.address.$invalid"
+									class="warning">*Valid Employee Address Required</span>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-2"></div>
+							<div class="col-sm-4">
+								<label>Date Of Birth</label> <input type="date" name="dob"
+									ng-model="empObject.dob" required="required"
+									class="form-control" min="1960-01-01" max="1994-12-31">
+								<span ng-show="EDescForm.dob.$dirty && EDescForm.dob.$invalid"
+									class="warning">*Invalid Date of Birth</span>
+							</div>
+							<div class="col-sm-4">
+								<label>Date Of Joining</label> <input type="date" name="doj"
+									ng-model="empObject.doj" ng-change="checkDate(empObject.doj)"
+									required="required" class="form-control" min="1997-01-01"
+									max="2017-12-31"> <span
+									ng-show="EDescForm.doj.$dirty && EDescForm.doj.$invalid"
+									class="warning">*Invalid Date of Joining</span>
+									 <span class="warning" ng-show="dateFlag">*Date to be past date</span>
+							</div>
+						</div>
+						<div class="row">
+							<br>
+							<div class="col-sm-2"></div>
+							<div class="col-sm-4 form-group">
+								<label>Designation</label> <select class="form-control"
+									name="designation" ng-model="empObject.designation">
+									<option value="">Designation</option>
+									<option value="ADMIN">ADMIN</option>
+									<option value="HM">HIRING MANAGER</option>
+									<option value="RM">REPORTING MANAGER</option>
+									<option value="BFM">BUSINESS FINANCE MANAGER</option>
+									<option value="RCM">RECRUITMENT MANAGER</option>
+									<option value="REC">RECRUITER</option>
+								</select>
+							</div>
+							<div class="col-sm-4">
+								<label>Location</label> <input type="text" name="location"
+									ng-model="empObject.location" required="required"
+									ng-pattern="/^[a-zA-Z]*$/"
+									placeholder="Enter City,State Name Here.." class="form-control"
+									maxlength="30"> <span
+									ng-show="EDescForm.location.$dirty && EDescForm.location.$invalid"
+									class="warning">*Invalid location</span>
+							</div>
+						</div>
+
+						<div class="row">
+							<br>
+							<div class="col-sm-2"></div>
+							<div class="col-sm-8">
+								<label>Password</label> <input type="text" name="password"
+									ng-model="empObject.password" required="required"
+									placeholder="Enter Password Here.." class="form-control"
+									maxlength="30"> <span
+									ng-show="EDescForm.password.$dirty && EDescForm.password.$invalid"
+									class="warning">*Required</span>
+							</div>
+						</div>
+
+						<div class="row">
+							<br>
+							<div class="col-sm-2"></div>
+							<div class="col-sm-8">
+								<label>Phone Number</label> <input type="text" name="phone"
+									ng-model="empObject.phone" required="required"
+									ng-pattern="/^[789]{1}[0-9]{9}$/"
+									placeholder="Enter Phone Number Here.." class="form-control"
+									maxlength="10"> <span
+									ng-show="EDescForm.phone.$dirty && EDescForm.phone.$invalid"
+									class="warning">*Invalid phone number</span>
+							</div>
+						</div>
+						<div class="row">
+							<br>
+							<div class="col-sm-2"></div>
+							<div class="col-sm-8">
+								<label>Email Address</label> <input type="text" name="email"
+									ng-model="empObject.email" required="required"
+									ng-pattern="/^[A-Za-z0-9._]+@[A-Za-z.-]+\.[A-Za-z]{2,3}$/"
+									placeholder="Enter Email Address Here.." class="form-control">
+								<span
+									ng-show="EDescForm.email.$dirty && EDescForm.email.$invalid"
+									class="warning">*Invalid Email Id</span>
+							</div>
+						</div>
+
+						<div class="row">
+							<br>
+							<div class="col-sm-4"></div>
+							<div class="col-sm-4">
+								<fieldset ng-disabled="dateFlag">
+									<button type="button" class="btn btn-lg btn-info btn-block"
+										ng-disabled="EDescForm.$invalid" ng-click="submit(empObject)">
+										Add Employee</button>
+								</fieldset>
+							</div>
+						</div>
+						<br>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

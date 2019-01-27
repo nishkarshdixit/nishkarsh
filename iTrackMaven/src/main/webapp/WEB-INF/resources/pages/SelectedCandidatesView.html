@@ -1,0 +1,57 @@
+
+<div class="row"><br><br><br><br></div>
+ <div class="container">
+	<div class="row">
+
+		<section class="content"> 
+			<h2 class="col-lg-10 col-md-offset-1 well">Selected Candidates</h2><br><br><br>
+			<div class="col-lg-10 col-md-offset-1">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<div class="table-container">
+							<div class="table-responsive">
+                                    <table class="table table-filter">
+                                        <thead>
+                                            <tr >
+                                            <th>Title</th>
+                                            <th>Candidate Id</th>
+                                            <th>First Name</th>
+                                            <th>Middle Name</th>
+                                            <th>LastName</th>
+											<th>Date_of_Birth</th>
+											<th>Phone Number</th>
+											<th>EmailId</th>
+											<th>Current Location</th>
+											<th>Preferred Location</th>
+											<th>Total Experience</th>
+											<th>Relevant Experience</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="x in selectedCandidates">
+													
+                                            <td ng-bind="x.title"></td>
+                                            <td ng-bind="x.candidateId"> </td>
+                                            <td ng-bind="x.firstName"> </td>
+                                            <td ng-bind="x.middleName"> </td>
+                                            <td ng-bind="x.lastName"></td>
+                                            <td ng-bind="x.dob | date"></td>
+                                            <td ng-bind="x.phoneNumber"></td>
+                                            <td ng-bind="x.email"></td>
+                                            <td ng-bind="x.currentLocation"></td>
+                                            <td ng-bind="x.preferredLocation"></td>
+                                            <td ng-bind="x.totalExperience"></td>
+                                            <td ng-bind="x.relevantExperience"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+						</div>
+					</div>
+				</div>
+			</div>
+            
+                	
+			</div>
+</section>
+</div>
+</div>

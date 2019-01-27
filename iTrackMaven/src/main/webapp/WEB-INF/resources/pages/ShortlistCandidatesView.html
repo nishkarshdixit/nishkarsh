@@ -1,0 +1,62 @@
+
+
+<div class=" fluid-container">
+	<div class="row"><br><br><br><br></div>
+	<div class="row">
+
+        
+        <div class="col-md-12">
+      <center>  <h2 class="col-lg-10 col-md-offset-1 well">REGISTERED CANDIDATES</h2> <br><br><br></center>
+        
+          <div class="panel-body">
+              
+			  <div class="panel panel-default col-lg-10 col-md-offset-1">
+			  <table id="mytables" class="table table-responsive ">
+			  
+			   <thead>
+                   <th>Choose</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Preferred Location</th>
+                    <th>Total Experience</th>
+					<th>Relevant Experience</th>
+					<th>Email Address</th>
+					<th>Phone Number</th>
+					<th>View CV</th>
+					
+                    
+					
+                   </thead>
+			  
+			   <tbody>
+    
+				<tr ng-repeat="cand in candidateList">
+				<td><input type="checkbox" ng-value="cand"  ng-click="add(candidateList.indexOf(cand))"><br></td>
+				<td ng-bind="cand.firstName"></td>
+				<td ng-bind="cand.lastName"></td>
+				<td ng-bind="cand.preferredLocation"></td>
+				<td ng-bind="cand.totalExperience"></td>
+				<td ng-bind="cand.relevantExperience"></td>
+				<td ng-bind="cand.email"></td>
+				<td ng-bind="cand.phoneNumber"></td>
+				<td><button type="button" ng-click="viewCV(cand.cv)"  class="btn btn-info col-lg-12"><span class="glyphicon glyphicon-download"></span></button></td>
+			
+			
+				
+				
+			 </tr>
+			
+			 </tbody>
+			  </table>
+			  <br/><br/><a><button type="button" ng-click="addItem()"  class="btn btn-primary col-md-offset-5 col-sm-2">Shortlist</button><br/><br/><br/></a>
+			</div>
+			
+	
+        </div>
+	</div>
+</div>
+
+
+
+      <!-- /.modal-dialog --> 
+    </div>

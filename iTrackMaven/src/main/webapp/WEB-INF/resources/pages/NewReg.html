@@ -1,0 +1,118 @@
+<div>
+	<div class="row"><br><br><br><br></div>
+	<div ng-controller="fileUpload">
+		<div class="content">
+	    <h1 class="container-fluid well col-lg-10 col-lg-offset-1">Registration Form</h1>
+		<div class="col-lg-10 col-lg-offset-1 well">
+		<div class="row">
+					<form name = "RegForm" enctype="multipart/form-data" novalidate ng-init="uploadCheck='true'">
+						<div class="col-sm-12">
+							<div class="row">
+								<div class="col-sm-2 form-group">
+									<select class="form-control" required="required" name="title" ng-model="regObject.title">
+									<option value="">Title</option>
+									<option value="Mr">Mr.</option>
+									<option value="Miss">Miss</option>
+									<option value="Mrs">Mrs.</option>
+									</select>
+									<span ng-show= "RegForm.title.$dirty && RegForm.title.$invalid" class="warning">*Required</span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-4 form-group">
+									<label>First Name</label>
+									<input type="text" name = "firstName" ng-model = "regObject.firstName" required = "required"  ng-pattern="/^[A-Za-z]*$/" placeholder="Enter First Name Here.." class="form-control" ng-maxlength="30">
+									<span ng-show= "RegForm.firstName.$dirty && RegForm.firstName.$invalid" class="warning">*Valid Name Required</span>
+								</div>
+								<div class="col-sm-4 form-group">
+									<label>Middle Name</label>
+									<input type="text" name = "middleName" ng-model = "regObject.middleName" placeholder="Enter Middle Name Here.."  ng-pattern="/^[A-Za-z]*$/" class="form-control" ng-maxlength="30">
+									<span ng-show= "RegForm.middleName.$dirty && RegForm.middleName.$invalid" class="warning">*Valid Name Required</span>
+								</div>
+								<div class="col-sm-4 form-group">
+									<label>Last Name</label>
+									<input type="text" name = "lastName" ng-model = "regObject.lastName" required = "required"  ng-pattern="/^[A-Za-z]*$/" placeholder="Enter Last Name Here.." class="form-control" ng-maxlength="30">
+									<span ng-show= "RegForm.lastName.$dirty && RegForm.lastName.$invalid" class="warning">*Valid Name Required</span>
+								</div>
+							</div>					
+							<div class="row">
+								<div class="col-sm-4 form-group">						
+									<label>Date Of Birth</label>
+									<input type="date" name = "dob" ng-model = "regObject.dob" required = "required" class="form-control" min ="1960-01-01" max = "1994-12-31">
+									<span ng-show= "RegForm.dob.$dirty && RegForm.dob.$invalid" class="warning">*Invalid Date of Birth</span>
+								</div>
+								<div class="col-sm-4">
+									<label>Current Location</label>
+									<input type="text" name = "currentLocation" ng-model = "regObject.currentLocation" required = "required" ng-pattern = "/^[a-zA-Z]*$/" placeholder="Enter City,State Name Here.." class="form-control" ng-maxlength="30">
+									<span ng-show= "RegForm.currentLocation.$dirty && RegForm.currentLocation.$invalid" class="warning">*Invalid location</span>
+								</div>	
+								<div class="col-sm-4">
+									<label>Preferred Location</label>
+									<input type="text" name = "preferredLocation" ng-model = "regObject.preferredLocation" required = "required" ng-pattern = "/^[a-zA-Z]*$/" placeholder="Enter City,State Name Here.." class="form-control" ng-maxlength="30">
+									<span ng-show= "RegForm.preferredLocation.$dirty && RegForm.preferredLocation.$invalid" class="warning">*Invalid location</span>
+								</div>									
+							</div>
+							<div class="row">
+								<div class="col-sm-6 form-group">
+									<label>Total Experience</label>
+									<div>
+										<select class="form-control" name="totalExperience" required="required" ng-model="regObject.totalExperience">
+										<option value="">Total Experience</option>
+										<option value="1">1-3</option>
+										<option value="3">3-6</option>
+										<option value="6">above 6</option>
+										</select>
+									</div>
+									<span ng-show= "RegForm.totalExperience.$dirty && RegForm.totalExperience.$invalid" class="warning">*Invalid Experience years</span>
+								</div>		
+								<div class="col-sm-6 form-group">
+									<label>Relevant Experience</label>
+									<select class="form-control" required="required" name="relevantExperience" ng-model="regObject.relevantExperience">
+										<option value="">Relevant Experience</option>
+										<option value="1">1-3</option>
+										<option value="3">3-6</option>
+										<option value="6">above 6</option>
+									</select>
+									<span ng-show= "RegForm.relevantExperience.$dirty && RegForm.relevantExperience.$invalid" class="warning">*Invalid Experience years</span>
+									<span ng-show= "regObject.relevantExperience > regObject.totalExperience" class="warning">Impossible Value!!</span>
+								</div>	
+							</div>						
+						<div class="form-group">
+							<label>Phone Number</label>
+							<input type="text" name = "phoneNumber" ng-model = "regObject.phoneNumber" required = "required" ng-pattern="/^[789]{1}[0-9]{9}$/" placeholder="Enter Phone Number Here.." class="form-control" maxlength="10">
+							
+							<span ng-show= "RegForm.phoneNumber.$dirty && RegForm.phoneNumber.$invalid" class="warning">*Invalid phone number</span>
+						</div>		
+						<div class="form-group">
+							<label>Email Address</label>
+							<input type="text" name = "email" ng-model = "regObject.email" required = "required" ng-pattern="/^[A-Za-z0-9._]+@[A-Za-z.-]+\.[A-Za-z]{2,3}$/" placeholder="Enter Email Address Here.." class="form-control">
+							<span ng-show= "RegForm.email.$dirty && RegForm.email.$invalid" class="warning">*Invalid Email Id</span>
+							<span class="warning" ng-bind="message"></span>
+						</div>
+						<div class="row">	
+							<div class="col-sm-6 form-group">
+								<label>Resume</label>
+								<input type="file" id="file" file-input="file" name="cv"  required = "required">
+							</div>
+							<div class="col-sm-4">
+							
+							<button type="button" class="btn btn-sm btn-info" ng-click="add()">Upload<br></button>					
+							
+							</div>
+							
+						</div>
+						<div class="row">
+							<div class="col-sm-4"></div>
+							<div class="col-sm-4">
+							<fieldset ng-disabled="uploadCheck">
+							<button type="button" class="btn btn-lg btn-info btn-block" ng-disabled="RegForm.$invalid || regObject.relevantExperience > regObject.totalExperience" ng-click="submit(regObject)">Submit</button>
+							</fieldset>
+							</div>					
+						</div>
+					</form> 
+					<center></center> 
+					</div>
+		</div>
+		</div>
+	</div>
+</div>

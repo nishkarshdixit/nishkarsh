@@ -1,0 +1,77 @@
+<div class="fluid-container">
+<div class="row"><br><br><br><br></div>
+<div class="row">
+
+<div class="col-md-12">
+        <h2 class="col-lg-10 col-md-offset-1 well">Shortlisted Candidates for <element ng-bind-html="candidateStatusObject.requestId"></element></h2> <br><br><br>
+
+
+
+
+
+
+
+
+<br/> <div class="panel panel-default col-lg-10 col-md-offset-1">
+			  <table id="mytables" class="table table-responsive ">
+                   
+                   <thead>
+				  
+                   <th>Select Candidate</th>
+                    <th>Candidate Id</th>
+                    <th>Candidate Name</th>
+                    <th>Current Status</th>
+                   </thead>
+    <tbody>
+    
+    <tr ng-repeat="cand in candidateList">
+	
+    <td>  <input type="radio" ng-value=cand ng-model="spliceObject.data"><br></td>
+    <td ng-bind="cand.candidateId"></td>
+    <td ng-bind="cand.firstName"></td>
+    <td ng-bind="cand.status"></td>
+     <div class="btn-group" data-toggle="buttons">
+  </tr>
+    
+ </tbody>
+        
+</table>
+<table id="mytables" class="table table-responsive ">
+	<td><p data-placement="top" data-toggle="tooltip" title="First Assessment"><label class="btn btn-success"><input type="radio" name="options" id="option1" ng-value=1 ng-model="updateObject.status"   checked>FIRST</label></p></td>
+    <td><p data-placement="top" data-toggle="tooltip" title="Second Assessment"><label class="btn btn-success"><input type="radio" name="options" id="option2" ng-value=2 ng-model="updateObject.status"  > SECOND</label></p></td>
+	<td><p data-placement="top" data-toggle="tooltip" title="Third Assessment"> <label class="btn btn-success" ><input type="radio" name="options" id="option3" ng-value=3 ng-model="updateObject.status" >THIRD</label></p></td></div>
+  <td><p> <!-- <button class="btn btn-danger btn-s" data-title="Reject" data-toggle="modal" data-target="#reject" >-->
+ <!--  <label class="btn btn-danger" ><input type="button" class="btn btn-danger btn-s"  data-toggle="modal" data-target="#reject" >REJECT</label> -->
+ <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#reject">Reject</button>
+ <td><button type="button" class="btn btn-primary" ng-click="updateStatus(updateObject)">UPDATE</button></td>
+</p>
+</td>
+</table>
+	</div>
+        </div>
+	</div>
+
+ <div class="modal fade" id="reject" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+      <div class="modal-dialog">
+      <form name="form" novalidate>
+    <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+            <h4 class="modal-title custom_align" id="Heading">State Reason for Rejection</h4>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <input class="form-control" name="text" type="text" required="required" maxlength="20" ng-model="updateObject.remark" ng-pattern="/^[A-Za-z]*$/">
+              <span ng-show="form.text.$dirty && form.text.$invalid" class="warning">Enter valid remark</span>
+            </div>
+          </div>
+      </div>
+          <div class="modal-footer ">
+        <button type="button" data-dismiss="modal" aria-hidden="true" class="btn btn-warning btn-lg" ng-disabled="form.$invalid"style="width: 100%;" ng-click="rejectStatus(updateObject)"><span class="glyphicon glyphicon-ok-sign"></span>Post Reason</button>
+      </div>
+      </form>
+        </div>
+    /.modal-content 
+  </div> 
+  </div>
+ 

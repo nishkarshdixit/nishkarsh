@@ -1,0 +1,82 @@
+<div class="fluid-container">
+		<div class="row"><br><br><br><br></div>
+       <div class="row">
+              
+        
+        <div class="col-md-12">
+        <h2 class="col-lg-10 col-md-offset-1 well">Welcome <span ng-bind="data.employeeName"></span></h2> <br><br><br>
+        <div class="panel panel-default col-lg-12">
+          <div class="panel-body">
+              <table id="mytable" class="table table-responsive ">
+                  <thead>
+                   <th>Select Request</th>
+                    <th>Request Id</th>
+                    <th>Raised By</th>
+                    <th>Cost Center</th>
+                    <th>Primary Skills</th>
+                    <th>Secondary Skills</th>
+                    <th>Project Name</th>
+                    <th>Deadline</th>
+                    <th>Date Of Issue</th>
+                    <th>Resource Requirement</th>
+                    <th>Job Description</th>
+                    
+                   </thead>
+    <tbody>
+    
+    <tr ng-repeat="x in requests">
+    <td>  <input type="radio" ng-value=x ng-model="spliceObject.data"><br></td>
+    <td ng-bind="x.requestId"></td>
+    <td ng-bind="x.employeeName"></td>
+    <td ng-bind="x.costCenterName"></td>
+       <td ng-bind="x.primarySkill"></td>
+         <td ng-bind="x.secondarySkill"></td>
+    <td ng-bind="x.projectName"></td>
+    <td ng-bind="x.deadline | date"></td>
+    <td ng-bind="x.issueDate | date"></td>
+    <td ng-bind="x.resourceCount"></td>
+    <td><button type = "button" class = "btn btn-info" ng-click="jdDownload(x.jobDescription)"><span class="glyphicon glyphicon-download"></span></button></td>
+    </tr>
+    
+ </tbody>
+        
+</table><br/><br/><br/><br/><br/><br/>
+
+
+<center><div button type = "button" class = "btn btn-primary"  data-title="Assign" data-toggle="modal" data-target="#Assign">Assign Recruiter</button>
+       </div></center>
+        </div>
+       </div>
+</div>
+
+<div class="modal fade" id="Assign" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+      <div class="modal-dialog">
+    <div class="modal-content">
+    <form name="form" novalidate>
+          <div class="modal-header">
+    <h3>RECRUITERS LIST</h3>
+  <div class="row"><br></div>
+  <div class="col-xs-6">
+  <select class="form-control" name="recruiter" id="recruiter" ng-model="assignObject.srecruiterId" required="required">
+  
+    <option value="">Select Recruiter</option>  
+  	<option ng-repeat="x in recruiters" value="{{x.employeeId}}" >{{x.employeeName+ ' - '+x.employeeId}}</option>
+  
+</select>
+<span ng-show="form.recruiter.$dirty && form.recruiter.$invalid">Required</span>
+  </div>
+              
+                      
+        <button type = "button" class = "btn btn-primary" data-dismiss="modal" aria-hidden="true" ng-disabled="form.$invalid" ng-click="assignRec()" ><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Assign</button>
+        </div>
+        </form>
+          </div>
+         
+      </div>
+    <!-- /.modal-content --> 
+  </div>
+      <!-- /.modal-dialog --> 
+    </div>
+       
+       </div>
+

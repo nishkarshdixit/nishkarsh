@@ -1,0 +1,56 @@
+<div class="fluid-container">
+		<div class="row"><br><br><br><br></div>
+			<div class="row">
+
+		<section ng-init="flag='false'"> 
+		<center><span ng-bind="messagehm"></span></center>
+			<h2 class="col-lg-8 col-md-offset-2 well">Welcome <span ng-bind="data.employeeName"></span></h2><br><br><br>
+			
+			<div class="row col-lg-10 col-lg-offset-1">
+			<a href="#/raiseRequest"><button type="button"  class="btn btn-primary col-md-offset-2 col-lg-3">Raise New Request</button></a>
+			<a href="#/selected"><button type="button"  class="btn btn-primary col-md-offset-2 col-lg-3">View  Selected Candidates</button></a><br>
+			&nbsp;&nbsp;<a href="#/requestStatus"><button type="button"  class="btn btn-primary col-md-offset-4 col-lg-3">Check Request Status</button></a>
+			<br><br></div>
+			
+			<div class="col-lg-10 col-md-offset-1">
+				<div class="panel panel-info">
+					<h4 class="panel-heading">Requests Under Process&nbsp;<span class="badge" ng-bind="count"></span></h4>
+					<div class="panel-body">
+						<div class="table-container">
+							<div class="table-responsive">
+                                    <table class="table table-filter" ng-show="flag">
+                                      <thead>
+                                      <tr>
+                                      	<th>Request ID</th>
+                                      	<th>Cost Center</th>
+                                      	<th>Issue Date</th>
+                                      	<th>Description</th>
+                                      	<th>Experience</th>
+                                      	<th>Resource Requirement</th>
+                                      	<th>Deadline</th>
+                                      </tr>
+                                      </thead>
+                                      
+                                      <tbody>
+                                      	<tr ng-repeat="req in listRequests">
+                                      		<td ng-bind="req.requestId"></td>
+                                      		<td ng-bind="req.costCenterName"></td>
+                                      		<td ng-bind="req.issueDate | date"></td>
+                                      		<td><span ng-bind="req.primarySkill">,&nbsp;<span ng-bind="req.secondarySkill"></span></span></td>
+                                      		<td ng-bind="req.experience"></td>
+                                      		<td ng-bind="req.resourceCount"></td>
+                                      		<td ng-bind="req.deadline | date"></td>
+                                      	</tr>
+                                      </tbody>
+                                    </table>
+						</div>
+					</div>
+				</div>
+			</div>
+            
+			</div>
+			
+</section>
+</div>
+
+</div>

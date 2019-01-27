@@ -1,0 +1,43 @@
+
+<div class="row"><br><br><br><br></div>
+ <div class="container">
+	<div class="row">
+
+		<section class="content"> 
+			<h2 class="col-lg-10 col-md-offset-1 well">Request Status</h2><br><br><br>
+			<div class="col-lg-10 col-md-offset-1">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<div class="table-container">
+							<div class="table-responsive">
+                                    <table class="table table-filter">
+                                        <thead>
+                                            <tr >
+                                            <th>Request Id</th>
+                                            <th>RM Status</th>
+                                            <th>BFM Status</th>
+                                            <th>Overall Status</th>
+                                    
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="x in statusRequests">
+													
+                                            <td ng-bind="x.requestId"></td>
+                                            <td ng-bind="x.rmStatus"> </td>
+                                            <td ng-bind="x.bfmStatus"> </td>
+                                            <td ng-bind="x.requestStatus"> </td>
+                                           
+                                            </tr>
+                                        </tbody>
+                                    </table>
+						</div>
+					</div>
+				</div>
+			</div>
+            
+                	
+			</div>
+</section>
+</div>
+</div>
